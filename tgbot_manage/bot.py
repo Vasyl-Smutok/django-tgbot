@@ -4,7 +4,7 @@ from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 
 from tgbot_manage.config import TOKEN
-from tgbot_manage.airtable import create_records, usernames_in_airtable
+from tgbot_manage.airtable import create_records, data_in_airtable
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
@@ -26,13 +26,13 @@ async def process_help_command(message: types.Message):
 
 @dp.message_handler(commands=['registration'])
 async def process_registration_command(msg: types.Message):
-    if msg.from_user.username not in usernames_in_airtable():
+    if msg.from_user.username not in data_in_airtable("username"):
         password = secrets.token_urlsafe(8)
 
         await bot.send_message(
             msg.from_user.id,
-            "Розмочинаємо реєстрацію!\n \nБільшість інформації береться з "
-            "твого акаунта в телегрм, тобі залишиться тільки ввести пароль"
+            "Розмочинаємо реєстрацію!\n \nIнформації береться з "
+            "твого акаунта в телегрм, а пароль генерується автоматично"
         )
 
         data = {

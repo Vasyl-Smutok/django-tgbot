@@ -31,7 +31,18 @@ def retrieve_records():
     return response.json()
 
 
-def usernames_in_airtable():
+def data_in_airtable(field):
     all_data = retrieve_records()
-    username = [data["fields"]["username"] for data in all_data["records"]]
-    return username
+    data_ = [data["fields"][field] for data in all_data["records"]]
+    return data_
+
+
+def login_data():
+    usernames = data_in_airtable("username")
+    passwords = data_in_airtable("password")
+
+    return dict(zip(usernames, passwords))
+
+
+if __name__ == '__main__':
+    print(data_in_airtable("username"))
