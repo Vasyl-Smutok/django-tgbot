@@ -3,10 +3,10 @@ import secrets
 from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 
-from tgbot_manage.config import TOKEN
+from RegistrationViaTelegram.settings import BOT_TOKEN
 from tgbot_manage.airtable import create_records, data_in_airtable
 
-bot = Bot(token=TOKEN)
+bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher(bot)
 
 
