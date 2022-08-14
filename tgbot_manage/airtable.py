@@ -1,8 +1,6 @@
 import requests
 
-AIRTABLE_BASE_ID = "app3vcxFEDlEdStCB"
-AIRTABLE_NAME = "django-tgbot"
-AIRTABLE_API_KEY = "keyCYj6sE0mNnqoJw"
+from RegistrationViaTelegram.settings import (AIRTABLE_BASE_ID, AIRTABLE_NAME, AIRTABLE_API_KEY)
 
 endpoint = f"https://api.airtable.com/v0/{AIRTABLE_BASE_ID}/{AIRTABLE_NAME}/"
 
@@ -31,18 +29,13 @@ def retrieve_records():
     return response.json()
 
 
-def data_in_airtable(field):
+def data_in_airtable():
     all_data = retrieve_records()
-    data_ = [data["fields"][field] for data in all_data["records"]]
-    return data_
-
-
-def login_data():
-    usernames = data_in_airtable("username")
-    passwords = data_in_airtable("password")
-
-    return dict(zip(usernames, passwords))
+    return {
+        data["fields"]['username']:
+            data["fields"] for data in all_data["records"]
+    }
 
 
 if __name__ == '__main__':
-    print(data_in_airtable("username"))
+    print(data_in_airtable())
