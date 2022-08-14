@@ -26,7 +26,9 @@ async def process_help_command(message: types.Message):
 
 @dp.message_handler(commands=['registration'])
 async def process_registration_command(msg: types.Message):
-    if msg.from_user.username not in data_in_airtable("username"):
+    data_of_users = data_in_airtable()
+
+    if msg.from_user.username not in data_of_users:
         password = secrets.token_urlsafe(8)
 
         await bot.send_message(
