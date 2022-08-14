@@ -16,12 +16,19 @@ load_dotenv()
 env_path = Path('.')/'.env'
 load_dotenv(dotenv_path=env_path)
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-AIRTABLE_BASE_ID = os.getenv("AIRTABLE_BASE_ID")
-AIRTABLE_NAME = os.getenv("AIRTABLE_NAME")
-AIRTABLE_API_KEY = os.getenv("AIRTABLE_API_KEY")
+# BOT_TOKEN = os.getenv("BOT_TOKEN")
+# AIRTABLE_BASE_ID = os.getenv("AIRTABLE_BASE_ID")
+# AIRTABLE_NAME = os.getenv("AIRTABLE_NAME")
+# AIRTABLE_API_KEY = os.getenv("AIRTABLE_API_KEY")
+# DJANGO_DEBUG = "False"
+# SECRET_KEY = os.getenv("SECRET_KEY")
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+
+BOT_TOKEN = "5532784232:AAE8cfO0FsIo_At4uePg8zvBK9fqv8CPxkU"
+AIRTABLE_BASE_ID = "app3vcxFEDlEdStCB"
+AIRTABLE_NAME = "django-tgbot"
+AIRTABLE_API_KEY = "keyCYj6sE0mNnqoJw"
+SECRET_KEY = "django-insecure-x$(t(ke0q=j#i&30q8dm#m^t$6zb&*_75=o4+-#a8ufqp5x7y@"
 
 
 INSTALLED_APPS = [
