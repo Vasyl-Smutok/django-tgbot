@@ -9,6 +9,10 @@
 
     <h1>Login</h1>
 
+    {% if errors  %}
+        <p style="color: red">{{ errors }}</p>
+    {% endif %}
+
     <form class="" method="post" action="{% url 'tgbot:login' %}">
         {% csrf_token %}
 
