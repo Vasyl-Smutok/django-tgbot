@@ -7,7 +7,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = os.getenv("DJANGO_DEBUG", "") == "True"
+DEBUG = "True"
 
 ALLOWED_HOSTS = ["127.0.0.1", "registration-via-telegram.herokuapp.com"]
 
